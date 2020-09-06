@@ -2,8 +2,8 @@
 class dbh
 {
 	private $host = "localhost";
-	private $user = "appmgcom_goalward";
-	private $pass = "AzO3dnxtq";
+	private $user = "root";
+	private $pass = "";
 	private $dbname = "appmgcom_goalward";
 
 	protected function connect()

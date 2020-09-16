@@ -32,9 +32,15 @@ $res = curl('POST', $url, json_encode($data), $key->api);
 print_r(json_decode($res)); */
 
 // ! Campaigns nowCampaign
-$url = 'http://localhost/randClass/campaigns.api.php?get=nowCampaign';
+/* $url = 'http://localhost/randClass/campaigns.api.php?get=nowCampaign';
 $hash = base64_encode(encrypt(1, $key->campaigns));
 
 $data = array();
 $res = curl('POST', $url, json_encode($data), $key->api);
-print_r(json_decode($res));
+print_r(json_decode($res)); */
+
+
+
+$url = 'http://localhost/randClass/api/staffs.api.php/1';
+$res = curl('post', $url, null, $key->api);
+print_r($res);

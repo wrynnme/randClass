@@ -6,18 +6,33 @@ class dbh
 	private $pass = "";
 	private $dbname = "appmgcom_goalward";
 
+	private $pdo;
+
 	protected function connect()
 	{
 		try {
 			$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-			$pdo = new pdo($dsn, $this->user, $this->pass);
-			$pdo->exec("set names utf8");
-			$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_BOTH);
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->pdo = new pdo($dsn, $this->user, $this->pass);
+			$this->pdo->exec("set names utf8");
+			$this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_BOTH);
+			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
-		return $pdo;
+		return $this->pdo;
+	}
+
+	protected function query($sql)
+	{
+		try {
+			$stmt = $this->pdo->prepare($sql);
+			if ($stmt->execute()) {
+				$data = $stmt->fetchAll();
+				return $data;
+			}
+		} catch (Exception $e) {
+			return $e->getMessage();
+		}
 	}
 
 	public function __construct()

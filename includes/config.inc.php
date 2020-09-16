@@ -95,6 +95,11 @@ function curl($method = 'get', $url, $data = null, $apikey = null)
 				if ($data != null)
 					curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 				break;
+			case "delete":
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+				if ($data != null)
+					curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+				break;
 			default:
 				if ($data)
 					$url = sprintf("%s?%s", $url, http_build_query($data));

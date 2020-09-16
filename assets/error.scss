@@ -1,0 +1,103 @@
+//colors
+$color_thunder_approx: #1f1e1f;
+$color_rajah_approx: #f3b861;
+$color_yellow_orange_approx: #f9a540;
+$color_cod_gray_approx: #141414;
+$green_40: rgba(0, 255, 0, 0.4);
+$red_50: rgba(255, 0, 0, 0.5);
+
+//fonts
+$font_0: Sans-Serif;
+$font_1: Lobster;
+$font_2: cursive;
+
+* {
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+}
+body {
+	color: $color_thunder_approx;
+	background-color: $color_rajah_approx;
+	font-family: $font_0;
+	text-align: center;
+}
+#container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.server {
+	height: fit-content;
+	width: 24vw;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1vw;
+	background-color: $color_thunder_approx;
+	padding: 3vw 2vw;
+	margin: 1vw;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 1vw 0.5vw 0.2vw $color_yellow_orange_approx;
+}
+.hdd-container {
+	padding: 0;
+}
+.hdd {
+	height: 4vw;
+	width: 100%;
+	margin-bottom: 1vw;
+	background-color: $color_cod_gray_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0.5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.led {
+	height: 0.8vw;
+	width: 0.8vw;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	background-color: $green_40;
+	margin: 0.5vw;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 10px rgba(0, 255, 0, 1);
+}
+.red-led {
+	background-color: $red_50;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 5px rgba(255, 0, 0, 1);
+	animation: blinking 1s linear infinite;
+}
+.cooling-system {
+	padding-top: 0.5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.grid {
+	background-color: $color_cod_gray_approx;
+	width: 8vw;
+	height: 9vw;
+	margin: 0.4vw;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0.8vw;
+}
+h1 {
+	font-family: $font_1, $font_2;
+	font-weight: lighter;
+	margin: 10px;
+}
+#error {
+	font-size: 1.2em;
+}
+p {
+	margin: 10px;
+}
+@keyframes blinking {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
